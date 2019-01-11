@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<script type="text/javascript" src="HelloWorld.js"></script>
+<script type="text/javascript">
+
+    window.onload = function() {
+        var dps = []; //dataPoints.
+
+        var chart = new CanvasJS.Chart("chartContainer", {
+            title: {
+                text: "Accepting DataPoints from User Input"
+            },
+            data: [{
+                type: "line",
+                dataPoints: dps
+            }]
+        });
+        //printing here
+
+        
+
+        function addDataPointsAndRender() {
+            xValue = newDate.ddate;
+            console.log(xValue);
+
+        
+            //yValue = Number(document.getElementById("xValue").value);
+            dps.push({
+                x: xValue //,
+                //y: 1
+            });
+            chart.render();
+        }
+
+        var renderButton = document.getElementById("renderButton");
+        renderButton.addEventListener("click", addDataPointsAndRender);
+    }
+</script>
+
+<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+<html lang="en">
+<head>
+  <!-- Scripts and styles here -->
+</head>
+<body class="container">
+
+  <header>
+    <h1>Hello World App</h1>
+  </header>
+
+  <input id="xValue" type="number" step="any" placeholder="Enter X-Value">
+  <button id="renderButton">Add DataPoint & Render</button>
+  <div id="chartContainer" style="height: 270px; width: 100%;">
+  </div>
+
+  <!-- Include our bundled JS -->
+  <script src="/js/bundle.js"></script>
+</body>
+</html>
